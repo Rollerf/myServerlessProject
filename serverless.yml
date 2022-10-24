@@ -26,6 +26,9 @@ provider:
   stage: dev
   region: eu-west-3
   profile: serverlessUser
+#For http API
+  httpApi:
+    cors: true
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
 #    role:
@@ -65,8 +68,12 @@ custom:
       localDir: UploadData
 
 functions:
-  hello:
-    handler: handler.hello
+  getUser:
+    handler: lambdas/getUser.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /get-user/{ID}
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
