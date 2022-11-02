@@ -70,6 +70,7 @@ custom:
   s3Sync:
     - bucketName: demobucketserverlessrollerf
       localDir: UploadData
+  tableName: player-points
 
 functions:
   getUser:
@@ -120,11 +121,22 @@ functions:
 
 # you can add CloudFormation resource templates here
 resources:
- Resources:
-   DemoBucketUpload:
-     Type: AWS::S3::Bucket
-     Properties:
-       BucketName: demobucketserverlessrollerf
+  Resources:
+    DemoBucketUpload:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: demobucketserverlessrollerf
+    MyDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.tableName}
+        AttributeDefinitions:
+          - AttributeName: ID
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ID
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
