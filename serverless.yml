@@ -1,16 +1,3 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
-
 service: myserverlessproject
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
@@ -26,6 +13,13 @@ provider:
   stage: dev
   region: eu-west-3
   profile: serverlessUser
+  environment:
+    tableName: ${self:custom.tableName}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+            - dynamodb:*
+      Resource: '*'
 #For http API
   httpApi:
     cors: true
@@ -74,11 +68,18 @@ custom:
 
 functions:
   getUser:
-    handler: lambdas/getUser.handler
+    handler: lambdas/endpoints/getUser.handler
     events:
       - httpApi:
           method: GET
           path: /get-user/{ID}
+
+  getPlayerScore:
+    handler: lambdas/endpoints/getPlayerScore.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /get-player-score/{ID}
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

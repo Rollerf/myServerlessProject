@@ -6,7 +6,7 @@ const Responses = {
                 'Access-Control-Allow-Methods': '*',
                 'Access-Control-Allow-Origin': '*',
             },
-            statusConde: 200,
+            statusCode: 200,
             body: JSON.stringify(data)
         }
     },
@@ -17,7 +17,7 @@ const Responses = {
                 'Access-Control-Allow-Methods': '*',
                 'Access-Control-Allow-Origin': '*',
             },
-            statusConde: 400,
+            statusCode: 400,
             body: JSON.stringify(data)
         }
     }
