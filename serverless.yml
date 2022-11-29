@@ -37,9 +37,9 @@ package:
 
 custom:
   s3Sync:
-    - bucketName: demobucketserverlessrollerf
+    - bucketName: demobucketserverlessrollerf1
       localDir: UploadData
-  tableName: player-points
+  tableName: player-points-ci
   dynamodb: 
     stages:
       - dev
@@ -55,7 +55,7 @@ custom:
       dir: offline/migrations
   scripts:
     hooks:
-      'aws:common:validate:validate': tableName=player-points-table npx jest
+      'aws:common:validate:validate': tableName=player-points-ci-table npx jest
 functions:
   getUser:
     handler: lambdas/endpoints/getUser.handler
