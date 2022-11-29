@@ -1,4 +1,3 @@
-const { default: expect } = require('expect');
 const Dynamo = require('./Dynamo');
 
 test('Dyanamo is an object', () => {
@@ -33,4 +32,4 @@ test('dynamo get works', async () => {
     } catch (error){
         console.log('error in dynamo get', error);
     }
-})
+});

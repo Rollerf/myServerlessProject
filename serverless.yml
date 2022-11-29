@@ -30,6 +30,7 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
   - serverless-s3-sync
+  - serverless-plugin-scripts
 
 package:
   individually: true
@@ -52,6 +53,9 @@ custom:
       seed: true
     migration: 
       dir: offline/migrations
+  scripts:
+    hooks:
+      'aws:common:validate:validate': tableName=player-points-table npx jest
 functions:
   getUser:
     handler: lambdas/endpoints/getUser.handler
