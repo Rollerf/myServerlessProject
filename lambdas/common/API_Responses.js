@@ -1,26 +1,29 @@
 const Responses = {
-    _200(data = {}){
+    _DefineResponse(statusCode = 502, data = {}) {
         return {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Methods': '*',
                 'Access-Control-Allow-Origin': '*',
             },
-            statusCode: 200,
-            body: JSON.stringify(data)
-        }
+            statusCode,
+            body: JSON.stringify(data),
+        };
     },
-    _400(data = {}){
-        return {
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Methods': '*',
-                'Access-Control-Allow-Origin': '*',
-            },
-            statusCode: 400,
-            body: JSON.stringify(data)
-        }
-    }
+
+    _200(data = {}) {
+        return this._DefineResponse(200, data);
+    },
+    _204(data = {}) {
+        return this._DefineResponse(204, data);
+    },
+
+    _400(data = {}) {
+        return this._DefineResponse(400, data);
+    },
+    _404(data = {}) {
+        return this._DefineResponse(404, data);
+    },
 };
 
 module.exports = Responses;

@@ -5,8 +5,6 @@ const Dynamo = require('../common/Dynamo');
 const tableName = process.env.tableName;
 
 exports.handler = async event => {
-    console.log('event', event);
-
     if (!event.pathParameters || !event.pathParameters.ID) {
         return Responses._400({ message: 'missing the ID from the path' })
     }
@@ -20,7 +18,7 @@ exports.handler = async event => {
     });
 
     if (!user) {
-        return Responses._400({message: 'no ID in data'});
+        return Responses._204({message: 'no ID in data'});
     }
     
     return Responses._200({user});
