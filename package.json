@@ -1,0 +1,31 @@
+{
+  "name": "myserverlessproject",
+  "version": "1.0.0",
+  "description": "Serverless test project",
+  "main": "handler.js",
+  "dependencies": {
+    "serverless-s3-sync": "^3.1.0",
+    "serverless-webpack": "^5.10.0",
+    "serverless-plugin-scripts": "^1.0.2",
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "@shelf/jest-dynamodb": "^3.3.1",
+    "jest": "^29.3.1",
+    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-offline": "^11.6.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rollerf/myServerlessProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rollerf/myServerlessProject/issues"
+  },
+  "homepage": "https://github.com/Rollerf/myServerlessProject#readme"
+}
