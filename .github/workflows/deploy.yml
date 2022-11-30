@@ -20,15 +20,8 @@ jobs:
       - name: Install serverless globally
         run: npm install -g serverless
       
-      #- name: Configure serverless authentication
-      #  run: sls config credentials --provider aws --profile serverlessUser --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Configure AWS Credentials  
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} 
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-3
+      - name: Configure serverless authentication
+       run: sls config credentials --provider aws --profile serverlessUser --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
       - name: Install npm dependencies
         run: npm ci
