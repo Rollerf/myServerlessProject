@@ -36,7 +36,7 @@ package:
 
 custom:
   s3Sync:
-    - bucketName: demobucketserverlessrollerf1
+    - bucketName: demobucketserverlessrollerf
       localDir: UploadData
   tableName: player-points-ci
   dynamodb: 
@@ -96,7 +96,6 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        BillingMode: PAY_PER_REQUEST
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"

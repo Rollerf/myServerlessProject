@@ -4,11 +4,11 @@
   "description": "Serverless test project",
   "main": "handler.js",
   "dependencies": {
+    "@shelf/jest-dynamodb": "^3.3.1",
+    "serverless-plugin-scripts": "^1.0.2",
     "serverless-s3-sync": "^3.1.0",
     "serverless-webpack": "^5.10.0",
-    "serverless-plugin-scripts": "^1.0.2",
-    "webpack": "^5.74.0",
-    "@shelf/jest-dynamodb": "^3.3.1"
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "jest": "^29.3.1",
