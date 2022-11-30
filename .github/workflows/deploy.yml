@@ -3,10 +3,10 @@ name: serverless-ci-deployment
 on: 
   push:
     branches:
-        master
+      - master
   
 jobs:
-  lambda-deploy:
+  deploy_lambda:
   	runs-on: ubuntu-latest
     steps:
       - name: Checkout to repo
