@@ -12,7 +12,6 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: eu-west-3
-  profile: serverlessUser
   environment:
     tableName: ${self:custom.tableName}
   iamRoleStatements:
