@@ -8,12 +8,12 @@
     "serverless-webpack": "^5.10.0",
     "serverless-plugin-scripts": "^1.0.2",
     "webpack": "^5.74.0",
-    "@shelf/jest-dynamodb": "^3.3.1",
+    "@shelf/jest-dynamodb": "^3.3.1"
+  },
+  "devDependencies": {
     "jest": "^29.3.1",
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-offline": "^11.6.0"
-  },
-  "devDependencies": {
   },
   "scripts": {
     "test": "mocha"
